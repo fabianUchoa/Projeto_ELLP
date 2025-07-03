@@ -1,0 +1,45 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Publish output
+publish/
+# VS Code settings folder
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Swagger cache
+swagger.json
+
+# Entity Framework
+*.dbmdl
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Arquivos especÃ­ficos do Visual Studio DesignTime build
+.aplicacaoPresencaLLP/ELLP-BackEnd/.vs/
+.aplicacaoPresencaLLP/ELLP-BackEnd/ELLP-Project/obj/
+

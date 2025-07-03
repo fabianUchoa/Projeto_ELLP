@@ -1,0 +1,69 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../CSS/CadastrarTurma-Screen.css">
+        <link rel="shortcut icon" href="../Images/favicon-ellp.png" type="image/x-icon">
+        <title>ELLP</title>
+    </head>
+<body>
+    <section class="sideBar">
+        <div class="optionsSection">
+            <h2 id="ellpTitle">Menu</h2>
+            <div class="sideBarOptions" onclick="home()">Página Inicial</div>
+            <div class="sideBarOptions" onclick="telaTurmas()">Turmas</div>
+            <div class="sideBarOptions" onclick="telaCriarTurma()">Criar Turma</div>
+        </div>
+        <img src="../Images/logo-navbar.png" id="ellpLogo" />
+    </section>
+
+    <section class="formContainer">
+        <h1 class="formTitle">Cadastrar Nova Turma</h1>
+
+        <form class="turmaForm" method="POST" action="/Oficina/Cadastrar">
+            <div class="formGroup">
+                <label for="oficinaNome">Nome da Turma:</label>
+                <input type="text" id="oficinaNome" name="OficinaNome" required />
+            </div>
+
+            <div class="formGroup">
+                <label for="professorId">Professor Responsável:</label>
+                <select id="professorId" name="ProfessorId" required>
+                    <option value="">Selecione um professor</option>
+                    
+                    <option value="1">Fernanda Lima</option>
+                    <option value="2">João Silva</option>
+                    
+                </select>
+            </div>
+
+            <div class="formGroup">
+                <label for="alunos">Alunos da Turma:</label>
+                <select id="alunos" name="AlunoIds" multiple size="5">
+                    <option value="101">Ana Souza</option>
+                    <option value="102">Carlos Mendes</option>
+                    <option value="103">Juliana Costa</option>
+                    <option value="104">Rafael Dias</option>
+                    <option value="105">Beatriz Martins</option>
+                </select>
+            </div>
+
+            <button type="submit" class="submitBtn">Cadastrar Turma</button>
+        </form>
+    </section>
+    <script>
+        function home(){
+            window.location.href = "./Home-Screen.html"
+        }
+
+        function telaCriarTurma(){
+            window.location.href = "./CadastrarTurma-Screen.html"
+        }
+
+        function telaTurmas(){
+            window.location.href ="./Turmas-Screen.html"
+        }
+    </script>
+</body>
+</html>

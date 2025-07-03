@@ -1,0 +1,114 @@
+create database dbllp;
+use dbllp;
+
+-- Tabela: Professor
+CREATE TABLE Professor (
+    Id SERIAL PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    Salt VARCHAR(255) NOT NULL,
+    SenhaHash VARCHAR(255) NOT NULL,
+    Login VARCHAR(100) UNIQUE NOT NULL
+);
+
+-- Tabela: Oficina
+CREATE TABLE Oficina (
+    OficinaId SERIAL PRIMARY KEY,
+    OficinaNome VARCHAR(100) NOT NULL,
+    ProfessorId INT NOT NULL,
+    CONSTRAINT FK_Oficina_Professor FOREIGN KEY (ProfessorId) REFERENCES Professor(Id)
+);
+
+-- Tabela: Aluno
+CREATE TABLE Aluno (
+    AlunoId SERIAL PRIMARY KEY,
+    AlunoNome VARCHAR(100) NOT NULL,
+    OficinaId INT NOT NULL,
+    CONSTRAINT FK_Aluno_Oficina FOREIGN KEY (OficinaId) REFERENCES Oficina(OficinaId)
+);
+
+-- Tabela: Monitor
+CREATE TABLE Monitor (
+    Id SERIAL PRIMARY KEY,
+    Nome VARCHAR(100) NOT NULL,
+    OficinaId INT,
+    Salt VARCHAR(255) NOT NULL,
+    SenhaHash VARCHAR(255) NOT NULL,
+    Login VARCHAR(100) UNIQUE NOT NULL,
+    CONSTRAINT FK_Monitor_Oficina FOREIGN KEY (OficinaId) REFERENCES Oficina(OficinaId)
+);
+
+-- Tabela: Falta
+CREATE TABLE Falta (
+    FaltaId SERIAL PRIMARY KEY,
+    AlunoId INT NOT NULL,
+    DataFalta DATE NOT NULL,
+    JustificativaFalta TEXT,
+    FaltaJustificada BOOLEAN NOT NULL,
+    CONSTRAINT FK_Falta_Aluno FOREIGN KEY (AlunoId) REFERENCES Aluno(AlunoId)
+);
+
+
+--relacionamentos
+--Relatório Geral de Alunos e Suas Oficinas
+CREATE VIEW vw_Alunos_Oficinas AS
+SELECT 
+    a.AlunoId,
+    a.AlunoNome,
+    o.OficinaNome,
+    p.Nome AS ProfessorResponsavel
+FROM Aluno a
+JOIN Oficina o ON a.OficinaId = o.OficinaId
+JOIN Professor p ON o.ProfessorId = p.Id;
+
+--Faltas dos Alunos com Justificativas
+CREATE VIEW vw_Faltas_Alunos AS
+SELECT 
+    f.FaltaId,
+    a.AlunoNome,
+    f.DataFalta,
+    f.FaltaJustificada,
+    f.JustificativaFalta
+FROM Falta f
+JOIN Aluno a ON f.AlunoId = a.AlunoId;
+
+-- Monitores por Oficina
+CREATE VIEW vw_Monitores_Oficina AS
+SELECT 
+    m.Id AS MonitorId,
+    m.Nome AS MonitorNome,
+    o.OficinaNome
+FROM Monitor m
+LEFT JOIN Oficina o ON m.OficinaId = o.OficinaId;
+
+--exemplos inserção
+-- Inserir Professores
+INSERT INTO Professor (Nome, Salt, SenhaHash, Login)
+VALUES 
+('Carlos Silva', 'salt123', 'hashsenha1', 'carlos.silva'),
+('Ana Paula', 'salt456', 'hashsenha2', 'ana.paula');
+
+-- Inserir Oficinas
+INSERT INTO Oficina (OficinaNome, ProfessorId)
+VALUES 
+('Robótica', 1),
+('Programação Web', 2);
+
+-- Inserir Alunos
+INSERT INTO Aluno (AlunoNome, OficinaId)
+VALUES 
+('João Mendes', 1),
+('Marina Costa', 2),
+('Pedro Oliveira', 1);
+
+-- Inserir Monitores
+INSERT INTO Monitor (Nome, Salt, SenhaHash, Login, OficinaId)
+VALUES 
+('Lucas Monitor', 'salt789', 'hashsenha3', 'lucas.monitor', 1),
+('Fernanda Monitora', 'salt321', 'hashsenha4', 'fernanda.monitor', 2);
+
+-- Inserir Faltas
+INSERT INTO Falta (AlunoId, DataFalta, JustificativaFalta, FaltaJustificada)
+VALUES 
+(1, '2025-06-20', 'Estava doente', TRUE),
+(1, '2025-06-25', NULL, FALSE),
+(2, '2025-06-22', 'Compromisso familiar', TRUE);

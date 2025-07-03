@@ -1,0 +1,124 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Turmas-Screen.css">
+    <link rel="stylesheet" href="../CSS/CadastrarTurma-Screen.css">
+    <link rel="shortcut icon" href="../Images/favicon-ellp.png" type="image/x-icon">
+    <title>ELLP</title>
+</head>
+<body>
+    <section class="sideBar">
+        <div class="optionsSection">
+            <h2 id="ellpTitle">Menu</h2>
+            <div class="sideBarOptions" onclick="home()">
+                Página Inicial
+            </div>
+            <div class="sideBarOptions" onclick="telaTurmas()">
+                Turmas
+            </div>
+            <div class="sideBarOptions" onclick="telaCriarTurma()">
+                Criar Turma
+            </div>
+        </div>
+        <img src="../Images/logo-navbar.png" alt="" srcset="" id="ellpLogo">
+    </section>
+    <section class="centerContent">
+        <h1 class="pageTitle">Turmas Cadastradas</h1>
+        <div class="mainContent">
+        
+            <!-- btn cadastrar turma -->
+            <div class="turmasHeader">
+                <a href="CadastrarTurma-Screen.html" class="addBtn">+ Nova Turma</a>
+            </div>
+
+            <!-- CARDS de turma -->
+            <div class="classCard">
+                <div class="cardHeader">
+                    <span class="turmaId">#1023</span>
+                    <span class="turmaNome">Programação Avançada</span>
+                </div>
+                <div class="cardBody">
+                    <div class="turmaInfo">
+                        <strong>Professor:</strong> Fernanda Lima
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Alunos:</strong> 18
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Monitores:</strong> 2
+                    </div>
+                </div>
+            </div>
+
+            <div class="classCard">
+                <div class="cardHeader">
+                    <span class="turmaId">#1024</span>
+                    <span class="turmaNome">Lógica de Programação</span>
+                </div>
+                <div class="cardBody">
+                    <div class="turmaInfo">
+                        <strong>Professor:</strong> João Silva
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Alunos:</strong> 25
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Monitores:</strong> 1
+                    </div>
+                </div>
+            </div>
+            
+            <div class="classCard">
+                <div class="cardHeader">
+                    <span class="turmaId">#1025</span>
+                    <span class="turmaNome">FrontEnd</span>
+                </div>
+                <div class="cardBody">
+                    <div class="turmaInfo">
+                        <strong>Professor:</strong> Luisa Ferreira
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Alunos:</strong> 15
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Monitores:</strong> 1
+                    </div>
+                </div>
+            </div>
+
+            <div class="classCard">
+                <div class="cardHeader">
+                    <span class="turmaId">#1026</span>
+                    <span class="turmaNome">BackEnd</span>
+                </div>
+                <div class="cardBody">
+                    <div class="turmaInfo">
+                        <strong>Professor:</strong> José Santos
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Alunos:</strong> 10
+                    </div>
+                    <div class="turmaInfo">
+                        <strong>Monitores:</strong> 3
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>  
+    <script>
+        function home(){
+            window.location.href = "./Home-Screen.html"
+        }
+
+        function telaCriarTurma(){
+            window.location.href = "./CadastrarTurma-Screen.html"
+        }
+
+        function telaTurmas(){
+            window.location.href ="./Turmas-Screen.html"
+        }
+    </script>  
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/Home-Screen.css">
+    <link rel="shortcut icon" href="../Images/favicon-ellp.png" type="image/x-icon">
+    <title>ELLP</title>
+</head>
+<body>
+    <section class="sideBar">
+        <div class="optionsSection">
+            <h2 id="ellpTitle">Menu</h2>
+            <div class="sideBarOptions" onclick="telaTurmas()">
+                Página Inicial
+            </div>
+            <div class="sideBarOptions" onclick="telaTurmas()">
+                Turmas
+            </div>
+            <div class="sideBarOptions" onclick="telaCriarTurma()">
+                Criar Turma
+            </div>
+        </div>
+        <img src="../Images/logo-navbar.png" alt="" srcset="" id="ellpLogo">
+    </section>
+    <section class="centerContent">
+        <div class="mainContent">
+            <div class="classRegistered">
+                <span class="classId">
+                    182465
+                </span>
+                <div class="classQuantity">
+                    <img src="../Images/Class-Page-Images/person_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+                    18
+                </div>
+                <div class="className" onclick="telaTurma()">
+                    Turma_Programação 2
+                </div>
+            </div>
+            <div class="classRegistered">
+                <span class="classId">
+                    185465
+                </span>
+                <div class="classQuantity">
+                    <img src="../Images/Class-Page-Images/person_24dp_000000_FILL1_wght400_GRAD0_opsz24.svg" alt="">
+                    12
+                </div>
+                <div class="className">
+                    Turma_Programação 1
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="rightContent">
+        <div class="panelDesign" id="classCont">
+            <div class="panelTitle">
+                Turmas cadastradas
+            </div>
+            <div class="panelData">
+                2
+            </div>
+        </div>
+        <div class="panelDesign" id="studentCont">
+            <div class="panelTitle">
+                Alunos cadastrados
+            </div>
+            <div class="panelData">
+                30
+            </div>
+        </div>
+    </section>
+    <script>
+        function telaTurma(){
+            window.location.href = "./Class-Screen.html"
+        }
+
+        function telaCriarTurma(){
+            window.location.href = "./CadastrarTurma-Screen.html"
+        }
+
+        function telaTurmas(){
+            window.location.href ="./Turmas-Screen.html"
+        }
+    </script>
+</body>
+</html>

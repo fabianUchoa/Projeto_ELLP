@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Images/favicon-ellp.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/Login-Screen.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>ELLP</title>
+</head>
+<body>
+    <section id="loginConteiner">
+        <img src="../Images/logo-navbar.png" alt="" id="" srcset="">
+      <div id="loginContent">
+        <h2>Entre com sua conta</h2>
+        <div id="loginMain">
+            <div class="inputArea">
+                <label for="emailLogin" class="inputLabel">Informe seu email:</label>
+                <input type="text" id="emailLogin" class="inputBox">
+            </div>
+
+            <div class="inputArea">
+                <label for="passwordLogin" class="inputLabel">Informe sua senha:</label>
+                <input type="password" id="passwordLogin" name="passwordLogin" class="inputBox">
+            </div>
+        </div>
+        <div id="loginFooter">
+            <div id="otherOptions">
+                <span id="forgotPassword">Esqueci a senha</span>
+            </div>
+            <div id="loginButton" onclick="loginUser()">
+                Entrar
+            </div>
+        </loginFooter>
+      </div>
+
+    </section>
+    <section id="informationConteiner">
+        <div id="imagePanel">
+            <img src="../Images/ellpinho_v2.png" alt="" id="ellpinhoImg" srcset="">
+            <span id="mainTitle">ELLP</span>
+            <span id="subTitle">ensino.lúdico(lógica.programação)</span>
+        </div>
+    </section>
+    <script>
+        function loginUser(){
+            window.location.href = "./Home-Screen.html"
+        }
+    </script>
+</body>
+</html>

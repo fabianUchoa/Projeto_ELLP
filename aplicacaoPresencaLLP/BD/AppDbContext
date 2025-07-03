@@ -1,0 +1,33 @@
+using Microsoft.AspNetCore.Mvc;
+using ELLP_Project.Models;
+using Microsoft.EntityFrameworkCore;
+using ELLP_Project.Services;
+ 
+using Oficina2.Models;
+
+namespace ELLP_Project.BD
+{
+    public class AppDbContext : DbContext
+    {
+        public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Oficina> Oficinas { get; set; }
+        public DbSet<Presenca> Presencas { get; set; }
+        public DbSet<Monitor> Monitores { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+
+        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) {}
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Presenca>()
+                .HasOne(p => p.Aluno)
+                .WithMany(a => a.Presencas)
+                .HasForeignKey(p => p.AlunoId);
+
+            modelBuilder.Entity<Presenca>()
+                .HasOne(p => p.Oficina)
+                .WithMany(o => o.Presencas)
+                .HasForeignKey(p => p.OficinaId);
+        }
+    }
+}

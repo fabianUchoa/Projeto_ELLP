@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Images/favicon-ellp.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/Class-Screen.css">
+    <title>ELLP</title>
+</head>
+<body>
+    <section class="sideBar">
+        <div class="optionsSection">
+            <h2 id="ellpTitle">Menu</h2>
+            <div class="sideBarOptions" onclick="home()">
+                Página Inicial
+            </div>
+            <div class="sideBarOptions" onclick="telaTurmas()">
+                Turmas
+            </div>
+            <div class="sideBarOptions" onclick="telaCriarTurma()">
+                Criar Turma
+            </div>
+        </div>
+        <img src="../Images/logo-navbar.png" alt="" srcset="" id="ellpLogo">
+    </section>
+    <section class="centerContent">
+        <div class="mainContent">
+            <div class="userList">
+                <img src="../Images/Class-Page-Images/teacherSimbol.svg" alt="">
+                <span class="userId">987546</span>
+                <span class="userName">Vitor Hugo</span>
+                <span class="userPosition">Professor</span>
+            </div>
+            <div class="userList">
+                <img src="../Images/Class-Page-Images/userSimbol.svg" alt="">
+                <span class="userId">545431</span>
+                <span class="userName">Jorge Mateus</span>
+                <span class="userPosition">Aluno</span>
+                <span class="userAbsense">Faltas: <span class="absenseNumber"> 2 </span></span>
+            </div>
+        </div>
+    </section>
+    <section class="rightContent">
+        <div class="absenseHeader">
+            <span class="studentName">Jorge Mateus</span>
+            <img src="../Images/Class-Page-Images/studentSimbol.svg" alt="" srcset="">
+            <span class="absenseTitle">-  Lista de Faltas</span>
+            <img src="../Images/Class-Page-Images/addSimbol.svg" alt="" class="userNewAbsense">
+        </div>
+        
+        <div class="absenseContent">
+            <div class="absenseList">
+                <div class="absenseDetails">
+                    <span class="absenseDate">20-12-2024</span>
+                    <span class="absenseJustify">Doente</span>
+                    <img src="../Images/Class-Page-Images/validSimbol.svg" alt="" srcset="">
+                </div>
+                <img src="../Images/Class-Page-Images/editSimbol.svg" alt="" srcset="" class="optionsAbsense">
+                <img src="../Images/Class-Page-Images/deleteSimbol.svg" alt="" srcset="" class="optionsAbsense">
+            </div>
+            <div class="absenseList">
+                <div class="absenseDetails">
+                    <span class="absenseDate">12-12-2024</span>
+                    <span class="absenseJustify"> -- </span>
+                    <img src="../Images/Class-Page-Images/invalidSimbol.svg" alt="" srcset="">
+                </div>
+                <img src="../Images/Class-Page-Images/editSimbol.svg" alt="" srcset="" class="optionsAbsense">
+                <img src="../Images/Class-Page-Images/deleteSimbol.svg" alt="" srcset="" class="optionsAbsense">
+            </div>
+        </div>
+    </section>
+        <script>
+        function home(){
+            window.location.href = "./Home-Screen.html"
+        }
+
+        function telaCriarTurma(){
+            window.location.href = "./CadastrarTurma-Screen.html"
+        }
+
+        function telaTurmas(){
+            window.location.href ="./Turmas-Screen.html"
+        }
+    </script>
+</body>
+</html>
